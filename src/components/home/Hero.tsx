@@ -8,15 +8,15 @@ export function Hero() {
     <div className="relative overflow-hidden pt-[120px] pb-16 sm:pb-24 lg:pb-32 lg:pt-[144px]">
       {/* Background decorative elements */}
       <div className="hidden lg:block absolute right-[-10%] top-[-5%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl" />
-      <div className="hidden lg:block absolute left-[-10%] bottom-[-10%] w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl" />
+      <div className="hidden lg:block absolute left-[-10%] bottom-[-10%] w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8">
           <div className="sm:text-center md:mx-auto lg:mx-0 lg:col-span-6 lg:text-left lg:flex lg:flex-col lg:justify-center">
             <div>
-              <span className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-primary/10 text-primary ring-1 ring-inset ring-primary/20">
+              <span className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-accent/10 text-accent ring-1 ring-inset ring-accent/20">
                 Novità
-                <span className="ml-2 h-1.5 w-1.5 rounded-full bg-primary"></span>
+                <span className="ml-2 h-1.5 w-1.5 rounded-full bg-accent"></span>
               </span>
             </div>
             <h1 className="mt-6 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
@@ -28,7 +28,7 @@ export function Hero() {
               Trasforma il tuo catalogo in un'esperienza digitale coinvolgente. Aumenta l'engagement e le conversioni con funzionalità avanzate di presentazione e interazione.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start">
-              <Button size="lg" className="rounded-full px-8">
+              <Button variant="cta" size="lg" className="rounded-full px-8">
                 Prova gratis
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -47,7 +47,7 @@ export function Hero() {
               </div>
               
               <div className="flex flex-col items-center lg:items-start">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary mb-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent mb-4">
                   <Globe className="h-6 w-6" />
                 </div>
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Multi-lingua</h3>

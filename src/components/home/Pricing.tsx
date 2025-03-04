@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
@@ -82,7 +81,7 @@ export function Pricing() {
     <section id="pricing" className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
+          <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-4">
             Prezzi
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
@@ -124,12 +123,12 @@ export function Pricing() {
               key={index}
               className={`relative rounded-2xl ${
                 tier.popular
-                  ? 'border-2 border-primary dark:border-primary shadow-xl'
+                  ? 'border-2 border-accent dark:border-accent shadow-xl'
                   : 'border border-gray-200 dark:border-gray-800 shadow-md'
               } p-8 flex flex-col h-full transition-transform hover:scale-[1.02] duration-300`}
             >
               {tier.popular && (
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-white text-xs font-bold uppercase py-1 px-4 rounded-full">
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-accent text-white text-xs font-bold uppercase py-1 px-4 rounded-full">
                   Più popolare
                 </div>
               )}
@@ -162,9 +161,8 @@ export function Pricing() {
               
               <div className="mt-8">
                 <Button
-                  className={`w-full rounded-lg ${
-                    tier.popular ? 'bg-primary hover:bg-primary/90' : 'bg-gray-900 dark:bg-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100'
-                  }`}
+                  variant={tier.popular ? 'cta' : (tier.name === 'Basic' ? 'default' : 'outline')}
+                  className={`w-full rounded-lg`}
                 >
                   {tier.cta}
                 </Button>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   Smartphone, QrCode, PenTool, Globe, Clock, LineChart, 
@@ -11,19 +10,20 @@ interface FeatureProps {
   title: string;
   description: string;
   isNew?: boolean;
+  accentColor?: 'primary' | 'accent';
 }
 
-const Feature: React.FC<FeatureProps> = ({ icon, title, description, isNew }) => {
+const Feature: React.FC<FeatureProps> = ({ icon, title, description, isNew, accentColor = 'primary' }) => {
   return (
     <div className="glass-card p-6 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] group">
       <div className="flex items-center space-x-4 mb-4">
-        <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+        <div className={`flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-${accentColor}/10 text-${accentColor} group-hover:bg-${accentColor} group-hover:text-white transition-colors`}>
           {icon}
         </div>
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center">
           {title}
           {isNew && (
-            <span className="ml-2 inline-flex items-center rounded-full bg-primary/20 px-2 py-1 text-xs font-medium text-primary">
+            <span className={`ml-2 inline-flex items-center rounded-full bg-accent/20 px-2 py-1 text-xs font-medium text-accent`}>
               Nuovo
             </span>
           )}
@@ -39,72 +39,84 @@ export function Features() {
     {
       icon: <QrCode />,
       title: "QR Code Dinamici",
-      description: "Genera QR code che puntano sempre ai contenuti aggiornati, modificabili in tempo reale."
+      description: "Genera QR code che puntano sempre ai contenuti aggiornati, modificabili in tempo reale.",
+      accentColor: "primary"
     },
     {
       icon: <PenTool />,
       title: "Editor WYSIWYG",
-      description: "Crea e modifica i tuoi contenuti con un editor intuitivo, senza bisogno di competenze tecniche."
+      description: "Crea e modifica i tuoi contenuti con un editor intuitivo, senza bisogno di competenze tecniche.",
+      accentColor: "accent"
     },
     {
       icon: <Smartphone />,
       title: "Realtà Aumentata",
       description: "Permetti ai clienti di visualizzare i prodotti in AR direttamente dal loro dispositivo.",
-      isNew: true
+      isNew: true,
+      accentColor: "primary"
     },
     {
       icon: <CalendarClock />,
       title: "Prenotazioni Integrate",
       description: "Sistema di prenotazioni e appuntamenti integrato con sincronizzazione calendario.",
-      isNew: true
+      isNew: true,
+      accentColor: "accent"
     },
     {
       icon: <Clock />,
       title: "Prezzi Dinamici",
       description: "Modifica automaticamente i prezzi in base a orari, giorno della settimana o fasce d'età.",
-      isNew: true
+      isNew: true,
+      accentColor: "primary"
     },
     {
       icon: <Globe />,
       title: "Multi-lingua",
       description: "Traduci automaticamente i tuoi contenuti in più lingue per raggiungere clienti internazionali.",
-      isNew: true
+      isNew: true,
+      accentColor: "accent"
     },
     {
       icon: <LineChart />,
       title: "Analytics Avanzati",
       description: "Analizza il comportamento degli utenti con heatmap e metriche dettagliate di engagement.",
-      isNew: true
+      isNew: true,
+      accentColor: "primary"
     },
     {
       icon: <Zap />,
       title: "Integrazione IoT",
       description: "Collega il tuo catalogo ai sistemi POS per aggiornamenti automatici in tempo reale.",
-      isNew: true
+      isNew: true,
+      accentColor: "accent"
     },
     {
       icon: <Accessibility />,
       title: "Gamification",
       description: "Implementa programmi fedeltà digitali per incentivare l'engagement e le conversioni.",
-      isNew: true
+      isNew: true,
+      accentColor: "primary"
     },
     {
       icon: <SunMoon />,
       title: "Tema Automatico",
       description: "Passa automaticamente da modalità chiara a scura in base all'ora o alle preferenze dell'utente.",
-      isNew: true
+      isNew: true,
+      accentColor: "accent"
     },
     {
       icon: <BellRing />,
       title: "Notifiche Push",
       description: "Invia notifiche push per promozioni flash e offerte limitate direttamente ai dispositivi.",
-      isNew: true
+      isNew: true,
+      accentColor: "primary"
     },
     {
       icon: <Navigation />,
       title: "Geofencing",
       description: "Attiva contenuti specifici quando i clienti si trovano in determinate aree geografiche.",
-      isNew: true
+      isNew: true,
+      accentColor: "accent"
     }
   ];
 
@@ -112,7 +124,7 @@ export function Features() {
     <section id="features" className="py-20 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
+          <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-4">
             Funzionalità
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
@@ -131,6 +143,7 @@ export function Features() {
               title={feature.title}
               description={feature.description}
               isNew={feature.isNew}
+              accentColor={index % 2 === 0 ? 'primary' : 'accent'}
             />
           ))}
         </div>
