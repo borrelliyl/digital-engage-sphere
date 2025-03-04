@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { 
-  Smartphone, Qr, PenTool, Globe, Clock, LineChart, 
+  Smartphone, QrCode, PenTool, Globe, Clock, LineChart, 
   Accessibility, CalendarClock, Zap, 
   SunMoon, BellRing, Navigation 
 } from 'lucide-react';
@@ -37,7 +37,7 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, description, isNew }) =>
 export function Features() {
   const features = [
     {
-      icon: <Qr />,
+      icon: <QrCode />,
       title: "QR Code Dinamici",
       description: "Genera QR code che puntano sempre ai contenuti aggiornati, modificabili in tempo reale."
     },
