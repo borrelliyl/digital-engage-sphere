@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
@@ -9,6 +9,7 @@ import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +23,10 @@ export function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const isActive = (path: string) => {
+    return location.pathname === path ? "text-primary font-medium" : "text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white";
+  };
 
   return (
     <header 
@@ -42,11 +47,14 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/#features" className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors">
+            <Link to="/features" className={`transition-colors ${isActive('/features')}`}>
               Funzionalità
             </Link>
-            <Link to="/#pricing" className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors">
+            <Link to="/pricing" className={`transition-colors ${isActive('/pricing')}`}>
               Prezzi
+            </Link>
+            <Link to="/examples" className={`transition-colors ${isActive('/examples')}`}>
+              Esempi
             </Link>
             <Link to="/#about" className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors">
               Chi siamo
@@ -85,18 +93,25 @@ export function Navbar() {
         <div className="md:hidden glass-morphism animate-fade-in">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link 
-              to="/#features" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200"
+              to="/features" 
+              className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/features')}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Funzionalità
             </Link>
             <Link 
-              to="/#pricing" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200"
+              to="/pricing" 
+              className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/pricing')}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Prezzi
+            </Link>
+            <Link 
+              to="/examples" 
+              className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/examples')}`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Esempi
             </Link>
             <Link 
               to="/#about" 
